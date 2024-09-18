@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "sandip-demo-tfstate-bucket"
+    bucket = "tf-eks-state-file"
     key    = "eks/terraform.tfstate"
     region = "us-west-2"
   }
