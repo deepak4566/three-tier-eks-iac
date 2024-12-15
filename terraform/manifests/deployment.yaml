@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openproject
+  labels:
+    app: openproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openproject
+  template:
+    metadata:
+      labels:
+        app: openproject
+    spec:
+      containers:
+      - name: openproject
+        image: deepak8934/project-tracker:1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOSTNAME
+          value: "postgres"
+        - name: DB_PORT
+          value: "5534"
+        - name: DB_NAME
+          value: "openproject"
+        - name: DB_USERNAME
+          value: "openproject"      
+        - name: DB_PASSWORD
+          value: "openproject" 
